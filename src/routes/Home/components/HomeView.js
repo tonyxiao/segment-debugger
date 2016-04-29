@@ -70,6 +70,7 @@ export default connect(mapStateToProps)(
     },
     onSubmit: (values) => {
       console.log(values)
+      analytics.track('userId', values)
     }
   })(HomeView)
 )
