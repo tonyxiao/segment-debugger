@@ -1,10 +1,13 @@
 import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
 import classes from './HomeView.scss'
+import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 
-export const HomeView = ({fields: {sdk, type, content}, handleSubmit, submitting, resetForm}) => (
+export const HomeView = ({counter, validJson, fields: {sdk, type, content}, handleSubmit, submitting, resetForm}) => (
   <div>
+    <h1>{counter}</h1>
+    <pre style={{textAlign: 'left'}}>{validJson}</pre>
     <form onSubmit={handleSubmit}>
       <div>
         <label>SDK</label>
@@ -45,16 +48,31 @@ export const HomeView = ({fields: {sdk, type, content}, handleSubmit, submitting
   </div>
 )
 
-export default reduxForm({
-  form: 'home',
-  fields: ['sdk', 'type', 'content'],
-  initialValues: {
-    sdk: 'node',
-    type: 'track',
-    content: 'Hello World'
-  },
-  onSubmit: (values) => {
-    console.log(values)
-  }
-})(HomeView)
+const mapStateToProps = (state) => ({
+  counter: state.counter,
+  validJson: state.counter,
+})
+
+export default connect(mapStateToProps)(
+  reduxForm({
+    form: 'home',
+    fields: ['sdk', 'type', 'content'],
+    initialValues: {
+      sdk: 'node',
+      type: 'track',
+      content: JSON.stringify({
+        type: 'identify',
+        userId: 'user1',
+        traits: {
+          firstName: 'Tony'
+        }
+      }, null, 4)
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })(HomeView)
+)
+
+
 // export default HomeView

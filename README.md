@@ -36,3 +36,7 @@ works we know our UI works. That gives us a baseline to then build the server si
 1:36pm
 Decided to use react-redux-starter-kit. The number of starters out there is a little crazy,
 let's just pick one and go with it. 
+
+2:45pm
+Back from lunch / watercooler chat.
+
