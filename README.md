@@ -1,16 +1,16 @@
 # Summary
 
-Live Demo: http://segment-debugger.herokuapp.com/
-JS Frontend / Backend: http://github.com/tonyxiao/segment-debugger
+* Live Demo: http://segment-debugger.herokuapp.com/
+* JS Frontend / Backend: http://github.com/tonyxiao/segment-debugger
   * For delta from boilerplate, check https://github.com/tonyxiao/segment-debugger/compare/initial...master
   * 40 commits
   * Frontend source code is stored inside `/src`
   * Backend source code is stored inside `/server/api.js`
   * Other files were from Boilerplate
-Python Frontend / Backend: https://github.com/tonyxiao/segment-debugger-python-server
+* Python Frontend / Backend: https://github.com/tonyxiao/segment-debugger-python-server
   * Wrote from scratch, no boiler plate
   * 7 commits
-README: This file
+* README: This file
 
 ## Pre-implementation planning
 
