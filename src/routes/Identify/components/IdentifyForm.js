@@ -5,16 +5,16 @@ import { reduxForm } from 'redux-form'
 import { createValidator, required } from 'utils/validation'
 
 export const IdentifyForm = ({fields: {userId, traits}, handleSubmit, submitting, resetForm, error}) => (
-  <div>
+  <div className={classes.container}>
     <h2>Identify</h2>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={classes.form}>
       <div>
         <label>userId</label>
         <input type="text" {...userId} />
       </div>
       <div>
         <label>traits</label>
-        <textarea className={classes.content} {...traits} />
+        <textarea className={classes.jsonInput} {...traits} />
       </div>
       <div>
         <p className={classes.error}>{error}</p>
