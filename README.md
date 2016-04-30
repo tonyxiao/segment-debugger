@@ -65,15 +65,12 @@ Total time spent: ~12 hours
   * https://github.com/segmentio/analytics-node/issues/59
   * https://github.com/segmentio/analytics.js/issues/505
 * Things that can use improvement
+  * Cover more api surface (group, raw, page calls)
+  * Cover more kinds of languages (ruby, go, closure) - this is actually pretty easy
   * Production deployment setup
   * De-duplicate code between different screens
   * Less ugly front-end pages
   * tests (then again this is not a production project)
-
-
-
-
-
 
 
 

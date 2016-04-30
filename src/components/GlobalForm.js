@@ -22,7 +22,6 @@ export const GlobalForm = ({ fields: {writeKey, sdk} }) => (
         <FormControl componentClass="select" {...sdk}>
           <option value="python">Python</option>
           <option value="node">Node.js</option>
-          <option value="ruby">Ruby</option>
         </FormControl>
       </Col>
     </FormGroup>
