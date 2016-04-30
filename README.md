@@ -31,12 +31,51 @@ What order makes sense to build these?
 will allow simulation of all the events desired using Segment JS SDK. Once this 
 works we know our UI works. That gives us a baseline to then build the server side.
 
-## Setup client side foundation - 1:21pm
+## Start Implementing
+
+1:21pm
+Researching what frameworks / tools to use
 
 1:36pm
 Decided to use react-redux-starter-kit. The number of starters out there is a little crazy,
 let's just pick one and go with it. 
 
+2:15pm
+A bit hungry, going for lunch
+
 2:45pm
 Back from lunch / watercooler chat.
+
+4:32pm
+It's been 3 hours already. I feel I should have been done by now. 
+Realizing that I'm spending way more time on the nitty gritty details of application architecture
+rather than on the actual business logic of implementing this debugger. Let's review the goals again
+
+We’re going to evaluate you on the following dimensions:
+* getting something that works end-to-end that sends data to 'segment/testing' using our real server-side library
+* because this will take arbitrary text, we’d like to see you validate your inputs and handle error cases (use your judgment on how to handle!)
+* we’d like to see a simple/clear API design between the frontend and the backend
+* bonus points for figuring out how to send to multiple different kinds of server-side libraries
+
+Using fancy libraries and maximizing for long term developer productivity is NOT one of the dimensions that's
+deemed important by the business. 
+
+In fact, if the goal of the project is to evaluate code I write, having a ton of code I did not write from the boilerplate
+is only going to make it more difficult to evaluate. 
+
+Take a step back, what's the simplest way to accomplish business objectives?
+
+4:45pm
+Let's go for another coffee.
+
+4:57pm
+Ok back in the seat. TJ hesitate to point people in any direction at all because
+whatever direction we point you in is always gonna lead you down a rabbit hole.
+Apparently Calvin has wrote about this - https://segment.com/blog/the-deep-roots-of-js-fatigue/
+
+5:10pm
+Ok decision time. Let's aim to have an end-to-end working ASAP and think
+about cleanup / validation / architecture later. Fastest way to end-to-end is not 
+to cause any more churn and go down the current (albeit non-optimal route)
+
 
