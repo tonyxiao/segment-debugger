@@ -14,6 +14,11 @@ export default ({fields: {userId, traits}, handleSubmit, submitting, resetForm, 
         <textarea className={classes.jsonInput} {...traits} />
       </div>
       <div>
+        <pre>
+          
+        </pre>
+      </div>
+      <div>
         <p className={classes.error}>{error}</p>
       </div>
       <div>

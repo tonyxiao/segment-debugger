@@ -1,11 +1,8 @@
-import { connect } from 'react-redux'
+import { compose } from 'recompose'
 import { reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
 import { createValidator, required } from 'utils/validation'
-
 import IdentifyForm from '../components/IdentifyForm'
-
-const mapStateToProps = (state) => ({
-})
 
 const validate = ({userId, traits = '{}'}) => {
   console.log('validating', userId, traits)
@@ -20,23 +17,29 @@ const validate = ({userId, traits = '{}'}) => {
   return {}
 }
 
-export default connect(mapStateToProps)(
-  reduxForm({
-    form: 'identify',
-    fields: ['userId', 'traits'],
-    initialValues: {
-      userId: 'tonyx',
-      traits: JSON.stringify({
-        firstName: 'Tony',
-        lastName: 'Xiao'
-      }, null, 4)
-    },
-    validate: validate,
-    onSubmit: ({userId, traits}) => {
-      const parsedTraits = JSON.parse(traits)
-      console.log('identify', userId, parsedTraits)
-      // Already validated by this point
-      analytics.identify(userId, parsedTraits)
-    }
-  })(IdentifyForm)
-)
+const formConfig = {
+  form: 'identify',
+  fields: ['userId', 'traits'],
+  initialValues: {
+    userId: 'tonyx',
+    traits: JSON.stringify({
+      firstName: 'Tony',
+      lastName: 'Xiao'
+    }, null, 4)
+  },
+  validate: validate,
+  onSubmit: ({userId, traits}) => {
+    const parsedTraits = JSON.parse(traits)
+    console.log('identify', userId, parsedTraits)
+    // Already validated by this point
+    analytics.identify(userId, parsedTraits)
+  }
+}
+
+const mapStateToProps = (state) => ({
+})
+
+export default compose(
+  reduxForm(formConfig),
+  connect(mapStateToProps)
+)(IdentifyForm)
