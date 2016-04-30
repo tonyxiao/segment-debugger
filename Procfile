@@ -1,1 +1,1 @@
-web: NODE_ENV=development HOST=segment-debugger.herokuapp.com npm run dev
+web: NODE_ENV=production HOST=segment-debugger.herokuapp.com npm run dev
