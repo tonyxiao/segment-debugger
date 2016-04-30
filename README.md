@@ -106,3 +106,9 @@ https://github.com/segmentio/analytics-node/issues/59
 1:30am
 OMG getting started with Python took literally 5 mins. Overhead of getting a
 JavaScript project setup is truly unreal
+
+2:42am
+Finally got the development version deployed to Heroku's server. Pretty ridiculous how long it took
+Also python server is deployed as well. 
+http://segment-debugger-python-server.herokuapp.com/api/identify
+
