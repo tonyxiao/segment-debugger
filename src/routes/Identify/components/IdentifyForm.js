@@ -1,7 +1,7 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
 import { Form, FormGroup, FormControl, ControlLabel, Col, HelpBlock, Button } from 'react-bootstrap'
-import styles from './IdentifyForm.scss'
+import styles from 'styles/shared.scss'
 
 export const IdentifyForm = ({fields: {userId, traitsJson}, handleSubmit, submitting, resetForm, error}) => (
   <Form horizontal onSubmit={handleSubmit}>
@@ -19,7 +19,7 @@ export const IdentifyForm = ({fields: {userId, traitsJson}, handleSubmit, submit
         Trains (Json)
       </Col>
       <Col sm={10}>
-        <FormControl componentClass="textarea" {...traitsJson} />
+        <FormControl componentClass="textarea" {...traitsJson} styleName='jsonInput' />
         <HelpBlock>{traitsJson.error}</HelpBlock>
       </Col>
     </FormGroup>
