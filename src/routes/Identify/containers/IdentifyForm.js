@@ -32,7 +32,19 @@ const formConfig = {
     const parsedTraits = JSON.parse(traits)
     console.log('identify', userId, parsedTraits)
     // Already validated by this point
-    analytics.identify(userId, parsedTraits)
+    // analytics.identify(userId, parsedTraits)
+    const baseUrl = '/api/identify/dMCgkHYgAAhLeFYjG1uc46JLvohsWWRx'
+    fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userId,
+        traits: parsedTraits
+      })
+    })
   }
 }
 

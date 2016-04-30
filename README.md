@@ -78,4 +78,7 @@ Ok decision time. Let's aim to have an end-to-end working ASAP and think
 about cleanup / validation / architecture later. Fastest way to end-to-end is not 
 to cause any more churn and go down the current (albeit non-optimal route)
 
+7:17pm
+Ok actually got something done for once. Able to send request from client through our own server 
+to segment's server end to end...
 

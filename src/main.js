@@ -5,6 +5,7 @@ import { Router, useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
 import { Provider } from 'react-redux'
+import 'whatwg-fetch' // polifill for ES6 fetch API
 
 const MOUNT_ELEMENT = document.getElementById('root')
 
