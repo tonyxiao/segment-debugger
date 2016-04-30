@@ -54,9 +54,10 @@ if (__DEV__ && module.hot) {
   module.hot.accept(['./routes/index'], () => render())
 }
 
+// Don't auto open dev tools, rather annoying
 // Use Redux DevTools chrome extension
-if (__DEBUG__) {
-  if (window.devToolsExtension) window.devToolsExtension.open()
-}
+// if (__DEBUG__) {
+//   if (window.devToolsExtension) window.devToolsExtension.open()
+// }
 
 render()
