@@ -1,10 +1,15 @@
+import Analytics from 'analytics-node'
 import route from 'koa-route'
+import jsonBody from 'koa-json-body'
+
+const segment = (writeKey) => Analytics(writeKey, { flushAt: 1 })
 
 export default function (app) {
-  console.log('Initializing api routes')
-  app.use(route.get('/hello', function *(){
-    this.body = 'hello world'
-    // var names = Object.keys(db);
-    // this.body = 'pets: ' + names.join(', ');
+  app.use(jsonBody())
+  app.use(route.post('/api/identify/:writeKey', (ctx, writeKey) => {
+    segment(writeKey).identify(ctx.request.body)
+    ctx.body = {
+      status: 'success'
+    }
   }))
 }
