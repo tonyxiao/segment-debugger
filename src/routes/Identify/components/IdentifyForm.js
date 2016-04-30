@@ -17,6 +17,9 @@ export const IdentifyForm = ({fields: {userId, traits}, handleSubmit, submitting
         <textarea className={classes.content} {...traits} />
       </div>
       <div>
+        <p className={classes.error}>{error}</p>
+      </div>
+      <div>
         <button type="submit" disabled={submitting}>
           {submitting ? <i/> : <i/>} Submit
         </button>
@@ -25,26 +28,42 @@ export const IdentifyForm = ({fields: {userId, traits}, handleSubmit, submitting
         </button>
       </div>
     </form>
-    <p>Error iss {userId.error}</p>
   </div>
 )
 
 const mapStateToProps = (state) => ({
 })
 
+const validate = ({userId, traits = '{}'}) => {
+  console.log('validating', userId, traits)
+  if (!userId) {
+    return {_error: 'userId is required.'}
+  }
+  try {
+    JSON.parse(traits)
+  } catch (err) {
+    return {_error: `${err}`}
+  }
+  return {}
+}
+
 export default connect(mapStateToProps)(
   reduxForm({
     form: 'identify',
     fields: ['userId', 'traits'],
-    validate: createValidator({
-      userId: [required]
-    }),
-    onSubmit: (values) => {
-      console.log(values)
-      analytics.track('userId', values)
+    initialValues: {
+      userId: 'tonyx',
+      traits: JSON.stringify({
+        firstName: 'Tony',
+        lastName: 'Xiao'
+      }, null, 4)
+    },
+    validate: validate,
+    onSubmit: ({userId, traits}) => {
+      const parsedTraits = JSON.parse(traits)
+      console.log('identify', userId, parsedTraits)
+      // Already validated by this point
+      analytics.identify(userId, parsedTraits)
     }
   })(IdentifyForm)
 )
-
-
-// export default IdentifyForm
