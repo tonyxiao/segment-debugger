@@ -4,24 +4,17 @@ import classes from './Header.scss'
 
 export const Header = () => (
   <nav>
-    <Link to='/identify' activeClassName={classes.activeRoute}>
+  
+    <Link className={classes.link} to='/identify' activeClassName={classes.activeRoute}>
       Identify
     </Link>
     {' · '}
-    <Link to='/track' activeClassName={classes.activeRoute}>
+    <Link className={classes.link} to='/track' activeClassName={classes.activeRoute}>
       Track
     </Link>
     {' · '}
-    <Link to='/alias' activeClassName={classes.activeRoute}>
+    <Link className={classes.link} to='/alias' activeClassName={classes.activeRoute}>
       Alias
-    </Link>
-    {' · '}
-    <Link to='/page' activeClassName={classes.activeRoute}>
-      Page
-    </Link>
-    {' · '}
-    <Link to='/group' activeClassName={classes.activeRoute}>
-      Group
     </Link>
   </nav>
 )
