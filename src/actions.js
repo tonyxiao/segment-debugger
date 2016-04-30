@@ -1,11 +1,19 @@
+export const getHostnameForSdk = (sdk) => {
+  switch (sdk) {
+    case 'node': return 'segment-debugger.herokuapp.com'
+    case 'python': return 'segment-debugger-python-server.herokuapp.com'
+    default: return 'localhost:3000'
+  }
+}
 
 export const callApi = (getState, type, body) => {
   const {writeKey, sdk} = getState().form.global
+  const hostName = getHostnameForSdk(sdk.value)
   // TODO: Manually constructing URL is not safe like this, but this is an 
   // internal tool. so yea... 
-  const baseUrl = `/api/${type}?writeKey=${writeKey.value}`
+  const url = `http://${hostName}/api/${type}?writeKey=${writeKey.value}`
   return new Promise((resolve, reject) => {
-    fetch(baseUrl, {
+    fetch(url, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

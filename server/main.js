@@ -5,6 +5,7 @@ import webpackConfig from '../build/webpack.config'
 import historyApiFallback from 'koa-connect-history-api-fallback'
 import serve from 'koa-static'
 import proxy from 'koa-proxy'
+import cors from 'koa-cors'
 import _debug from 'debug'
 import config from '../config'
 import initApi from './api'
@@ -12,6 +13,9 @@ import initApi from './api'
 const debug = _debug('app:server')
 const paths = config.utils_paths
 const app = new Koa()
+
+// Needed for api requests from arbitrary location to work
+app.use(cors())
 
 // Enable koa-proxy if it has been enabled in the config.
 if (config.proxy && config.proxy.enabled) {
