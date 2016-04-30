@@ -15,6 +15,7 @@ export const createRoutes = (store) => {
         next(null, [
           // Provide store for async reducers and middleware
           require('./Identify').default(store),
+          require('./Alias').default(store),
           require('./NotFound').default
         ])
       })

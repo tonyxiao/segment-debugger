@@ -1,0 +1,1 @@
+export const ALIAS_RESPONSE = 'ALIAS_RESPONSE'
