@@ -102,3 +102,5 @@ Logging some more issues
 https://github.com/segmentio/analytics-node/issues/59
 
 1:30am
+OMG getting started with Python took literally 5 mins. Overhead of getting a
+JavaScript project setup is truly unreal

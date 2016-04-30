@@ -7,7 +7,6 @@ import serve from 'koa-static'
 import proxy from 'koa-proxy'
 import _debug from 'debug'
 import config from '../config'
-import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHMRMiddleware from './middleware/webpack-hmr'
 import initApi from './api'
 
@@ -37,7 +36,7 @@ if (config.env === 'development') {
 
   // Enable webpack-dev and webpack-hot middleware
   const { publicPath } = webpackConfig.output
-
+  const webpackDevMiddleware = require('./middleware/webpack-dev').default
   app.use(webpackDevMiddleware(compiler, publicPath))
   app.use(webpackHMRMiddleware(compiler))
 
