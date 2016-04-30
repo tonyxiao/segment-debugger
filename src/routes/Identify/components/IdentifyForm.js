@@ -26,6 +26,7 @@ export const IdentifyForm = ({fields: {userId, traitsJson}, handleSubmit, submit
     <Button type="submit" disabled={submitting}>
       Submit
     </Button>
+    <p>{submitting && 'Submitting...'}</p>
   </Form>
 )
 
