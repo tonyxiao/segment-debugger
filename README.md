@@ -82,3 +82,9 @@ to cause any more churn and go down the current (albeit non-optimal route)
 Ok actually got something done for once. Able to send request from client through our own server 
 to segment's server end to end...
 
+7:18pm
+Time for a little beer break :) 
+
+7:30pm 
+Back to work
+
