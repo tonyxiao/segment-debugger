@@ -61,17 +61,19 @@ Total time spent: ~12 hours
   * JavaScript Fatigue is real - funny enough Calvin wrote about it too (https://segment.com/blog/the-deep-roots-of-js-fatigue/)
   * For a company that specializes in JavaScript, one would probably want to maintain a private boilerplate
   containing engineering standards / patterns everyone is familiar with. 
+* As a result, the client side app is at least 5x more complicated than the minimum complexity needed
 * Filed one issue, ran into another one while implementing project. Both on github
   * https://github.com/segmentio/analytics-node/issues/59
   * https://github.com/segmentio/analytics.js/issues/505
 * Things that can use improvement
   * Cover more api surface (group, raw, page calls)
   * Cover more kinds of languages (ruby, go, closure) - this is actually pretty easy
+  * Write key validation (right now any non-empty write key cause success state due to limitation of server libs)
+  * Display raw response from Segment HTTP API
   * Production deployment setup
-  * De-duplicate code between different screens
+  * De-duplicate code between different screens (add more dynamism to form)
   * Less ugly front-end pages
   * tests (then again this is not a production project)
-
 
 
 
