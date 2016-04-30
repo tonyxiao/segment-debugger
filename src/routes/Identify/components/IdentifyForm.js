@@ -1,4 +1,5 @@
 import React from 'react'
+import { Form, FormGroup, FormControl, ControlLabel, Col } from 'react-bootstrap'
 import classes from './IdentifyForm.scss'
 
 export default ({fields: {userId, traits}, handleSubmit, submitting, resetForm, error}) => (

@@ -1,17 +1,17 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
-import { Form, FormGroup, FormControl, ControlLabel, Col } from 'react-bootstrap'
+import { Form, FormGroup, FormControl, ControlLabel, Col, HelpBlock } from 'react-bootstrap'
 import styles from './GlobalForm.scss'
-
 
 export const GlobalForm = ({ fields: {writeKey, sdk} }) => (
   <Form horizontal styleName='form'>
-    <FormGroup controlId="writeKey">
+    <FormGroup controlId="writeKey" validationState={writeKey.error && 'error'}>
       <Col componentClass={ControlLabel} sm={2}>
         Write Key
       </Col>
       <Col sm={10}>
         <FormControl styleName='writeKey' placeholder="Write Key" {...writeKey} />
+        <HelpBlock>{writeKey.error}</HelpBlock>
       </Col>
     </FormGroup>
     <FormGroup controlId="SDK">
