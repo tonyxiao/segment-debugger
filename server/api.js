@@ -10,8 +10,6 @@ const throwJson = (ctx, err, status = 400) => {
 export default function (app) {
   app.use(jsonBody())
   app.use(route.post('/api/identify/:writeKey', (ctx, writeKey) => {
-    ctx.throw(JSON.stringify({_error: 'Unknown Error occured'}, null, 4), 400)
-    return
     console.log('Node identify', writeKey, ctx.request.body)
     try {
       segment(writeKey).identify(ctx.request.body)
