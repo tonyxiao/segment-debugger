@@ -93,3 +93,12 @@ Get some dinner
 
 9:03pm
 Back to work again 
+
+12:30am
+Basically end to end, but let's try to test some edge cases. What if we pass invalid writekey?
+
+1:08am
+Logging some more issues
+https://github.com/segmentio/analytics-node/issues/59
+
+1:30am

@@ -9,34 +9,34 @@ const throwJson = (ctx, err, status = 400) => {
 
 export default function (app) {
   app.use(jsonBody())
-  app.use(route.post('/api/identify/:writeKey', (ctx, writeKey) => {
-    console.log('Node identify', writeKey, ctx.request.body)
+  app.use(route.post('/api/identify', (ctx) => {
+    console.log('Node identify', ctx.request.query, ctx.request.body)
     try {
-      segment(writeKey).identify(ctx.request.body)
+      segment(ctx.request.query.writeKey).identify(ctx.request.body)
     } catch (err) { throwJson(ctx, err) }
     ctx.body = {status: 'success'}
   }))
-  app.use(route.post('/api/track/:writeKey', (ctx, writeKey) => {
+  app.use(route.post('/api/track', (ctx) => {
     try {
-      segment(writeKey).track(ctx.request.body)
+      segment(ctx.request.query.writeKey).track(ctx.request.body)
     } catch (err) { throwJson(ctx, err) }
     ctx.body = {status: 'success'}
   }))
-  app.use(route.post('/api/page/:writeKey', (ctx, writeKey) => {
+  app.use(route.post('/api/page', (ctx) => {
     try {
-      segment(writeKey).page(ctx.request.body)
+      segment(ctx.request.query.writeKey).page(ctx.request.body)
     } catch (err) { throwJson(ctx, err) }
     ctx.body = {status: 'success'}
   }))
-  app.use(route.post('/api/alias/:writeKey', (ctx, writeKey) => {
+  app.use(route.post('/api/alias', (ctx) => {
     try {
-      segment(writeKey).alias(ctx.request.body)
+      segment(ctx.request.query.writeKey).alias(ctx.request.body)
     } catch (err) { throwJson(ctx, err) }
     ctx.body = {status: 'success'}
   }))
-  app.use(route.post('/api/group/:writeKey', (ctx, writeKey) => {
+  app.use(route.post('/api/group', (ctx) => {
     try {
-      segment(writeKey).group(ctx.request.body)
+      segment(ctx.request.query.writeKey).group(ctx.request.body)
     } catch (err) { throwJson(ctx, err) }
     ctx.body = {status: 'success'}
   }))

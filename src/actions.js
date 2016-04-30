@@ -1,7 +1,9 @@
 
 export const callApi = (getState, type, body) => {
   const {writeKey, sdk} = getState().form.global
-  const baseUrl = `/api/${type}/${writeKey.value}`
+  // TODO: Manually constructing URL is not safe like this, but this is an 
+  // internal tool. so yea... 
+  const baseUrl = `/api/${type}?writeKey=${writeKey.value}`
   return new Promise((resolve, reject) => {
     fetch(baseUrl, {
       method: 'POST',
