@@ -3,9 +3,10 @@
 }
 
 .page-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
+  form {
+    text-align: left;
+  }
 }
 
 .global {

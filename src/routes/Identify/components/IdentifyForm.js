@@ -1,35 +1,32 @@
 import React from 'react'
-import { Form, FormGroup, FormControl, ControlLabel, Col } from 'react-bootstrap'
-import classes from './IdentifyForm.scss'
+import CSSModules from 'react-css-modules'
+import { Form, FormGroup, FormControl, ControlLabel, Col, HelpBlock, Button } from 'react-bootstrap'
+import styles from './IdentifyForm.scss'
 
-export default ({fields: {userId, traits}, handleSubmit, submitting, resetForm, error}) => (
-  <div className={classes.container}>
-    <h2>Identify</h2>
-    <form onSubmit={handleSubmit} className={classes.form}>
-      <div>
-        <label>userId</label>
-        <input type="text" {...userId} />
-      </div>
-      <div>
-        <label>traits</label>
-        <textarea className={classes.jsonInput} {...traits} />
-      </div>
-      <div>
-        <pre>
-          
-        </pre>
-      </div>
-      <div>
-        <p className={classes.error}>{error}</p>
-      </div>
-      <div>
-        <button type="submit" disabled={submitting}>
-          {submitting ? <i/> : <i/>} Submit
-        </button>
-        <button type="button" disabled={submitting} onClick={resetForm}>
-          Clear Values
-        </button>
-      </div>
-    </form>
-  </div>
+export const IdentifyForm = ({fields: {userId, traitsJson}, handleSubmit, submitting, resetForm, error}) => (
+  <Form horizontal onSubmit={handleSubmit}>
+    <FormGroup controlId="userId" validationState={userId.error && 'error'}>
+      <Col componentClass={ControlLabel} sm={2}>
+        userId
+      </Col>
+      <Col sm={10}>
+        <FormControl placeholder="Write Key" {...userId} />
+        <HelpBlock>{userId.error}</HelpBlock>
+      </Col>
+    </FormGroup>
+    <FormGroup controlId="traitsJson" validationState={traitsJson.error && 'error'}>
+      <Col componentClass={ControlLabel} sm={2}>
+        Trains (Json)
+      </Col>
+      <Col sm={10}>
+        <FormControl componentClass="textarea" {...traitsJson} />
+        <HelpBlock>{traitsJson.error}</HelpBlock>
+      </Col>
+    </FormGroup>
+    <Button type="submit" disabled={submitting}>
+      Submit
+    </Button>
+  </Form>
 )
+
+export default CSSModules(IdentifyForm, styles)

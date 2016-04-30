@@ -5,6 +5,16 @@
 const isEmpty = value => value === undefined || value === null || value === ''
 const join = (rules) => (value, data) => rules.map(rule => rule(value, data)).filter(error => !!error)[0 /* first error */ ]
 
+export function validJson(value) {
+  if (!isEmpty(value)) {
+    try {
+      JSON.parse(value)
+    } catch (err) {
+      return `${err}`
+    }
+  }
+}
+
 export function email(value) {
   // Let's not start a debate on email regex. This is just for an example app!
   if (!isEmpty(value) && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {

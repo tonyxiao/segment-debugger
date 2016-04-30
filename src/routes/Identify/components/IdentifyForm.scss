@@ -4,20 +4,6 @@
   align-items: center;
 }
 
-.form {
-  text-align: left;
-  
-  & > div {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-  }
-  
-  label {
-    min-width: 80px;
-  }
-}
-
 .jsonInput {
   min-width: 500px;
   min-height: 200px;

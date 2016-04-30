@@ -4,7 +4,7 @@ import { Form, FormGroup, FormControl, ControlLabel, Col, HelpBlock } from 'reac
 import styles from './GlobalForm.scss'
 
 export const GlobalForm = ({ fields: {writeKey, sdk} }) => (
-  <Form horizontal styleName='form'>
+  <Form horizontal>
     <FormGroup controlId="writeKey" validationState={writeKey.error && 'error'}>
       <Col componentClass={ControlLabel} sm={2}>
         Write Key

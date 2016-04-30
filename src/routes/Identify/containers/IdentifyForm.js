@@ -1,36 +1,26 @@
 import { compose } from 'recompose'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import { createValidator, required } from 'utils/validation'
+import { createValidator, required, validJson } from 'utils/validation'
 import IdentifyForm from '../components/IdentifyForm'
-
-const validate = ({userId, traits = '{}'}) => {
-  console.log('validating', userId, traits)
-  if (!userId) {
-    return {_error: 'userId is required.'}
-  }
-  try {
-    JSON.parse(traits)
-  } catch (err) {
-    return {_error: `${err}`}
-  }
-  return {}
-}
 
 const formConfig = {
   form: 'identify',
-  fields: ['userId', 'traits'],
+  fields: ['userId', 'traitsJson'],
   initialValues: {
     userId: 'tonyx',
-    traits: JSON.stringify({
+    traitsJson: JSON.stringify({
       firstName: 'Tony',
       lastName: 'Xiao'
     }, null, 4)
   },
-  validate: validate,
-  onSubmit: ({userId, traits}) => {
-    const parsedTraits = JSON.parse(traits)
-    console.log('identify', userId, parsedTraits)
+  validate: createValidator({
+    userId: [required],
+    traitsJson: [required, validJson]
+  }),
+  onSubmit: ({userId, traitsJson}) => {
+    const traits = JSON.parse(traitsJson)
+    console.log('identify', userId, traits)
     // Already validated by this point
     // analytics.identify(userId, parsedTraits)
     const baseUrl = '/api/identify/dMCgkHYgAAhLeFYjG1uc46JLvohsWWRx'
@@ -42,7 +32,7 @@ const formConfig = {
       },
       body: JSON.stringify({
         userId,
-        traits: parsedTraits
+        traits
       })
     })
   }
