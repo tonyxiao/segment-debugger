@@ -10,7 +10,7 @@ export const IdentifyForm = ({fields: {userId, traitsJson}, handleSubmit, submit
         userId
       </Col>
       <Col sm={10}>
-        <FormControl placeholder="Write Key" {...userId} />
+        <FormControl placeholder="User Id" {...userId} />
         <HelpBlock>{userId.error}</HelpBlock>
       </Col>
     </FormGroup>
@@ -23,6 +23,7 @@ export const IdentifyForm = ({fields: {userId, traitsJson}, handleSubmit, submit
         <HelpBlock>{traitsJson.error}</HelpBlock>
       </Col>
     </FormGroup>
+    <p styleName='error'>{error}</p>
     <Button type="submit" disabled={submitting}>
       Submit
     </Button>

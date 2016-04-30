@@ -4,12 +4,14 @@ import jsonBody from 'koa-json-body'
 
 const segment = (writeKey) => Analytics(writeKey, { flushAt: 1 })
 const throwJson = (ctx, err, status = 400) => {
-  ctx.throw(JSON.stringify({error: err.message || 'Unknown Error'}, null, 4), status)
+  ctx.throw(JSON.stringify({_error: err.message || 'Unknown Error'}, null, 4), status)
 }
 
 export default function (app) {
   app.use(jsonBody())
   app.use(route.post('/api/identify/:writeKey', (ctx, writeKey) => {
+    ctx.throw(JSON.stringify({_error: 'Unknown Error occured'}, null, 4), 400)
+    return
     console.log('Node identify', writeKey, ctx.request.body)
     try {
       segment(writeKey).identify(ctx.request.body)
