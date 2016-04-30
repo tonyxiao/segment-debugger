@@ -1,10 +1,18 @@
-https://github.com/segmentio/analytics-node/issues/59
+# Summary
 
-# Timeline of events
+Live Demo: http://segment-debugger.herokuapp.com/
+JS Frontend / Backend: http://github.com/tonyxiao/segment-debugger
+  * For delta from boilerplate, check https://github.com/tonyxiao/segment-debugger/compare/initial...master
+  * 40 commits
+  * Frontend source code is stored inside `/src`
+  * Backend source code is stored inside `/server/api.js`
+  * Other files were from Boilerplate
+Python Frontend / Backend: https://github.com/tonyxiao/segment-debugger-python-server
+  * Wrote from scratch, no boiler plate
+  * 7 commits
+README: This file
 
-## Clarification: 9am - 1pm
-
-## High-level System Architecture - 1:06pm
+## Pre-implementation planning
 
 What’s going to need to happen on the client-side?
 * Display an interface for raw user input (traits data, properties data)
@@ -33,9 +41,53 @@ What order makes sense to build these?
 will allow simulation of all the events desired using Segment JS SDK. Once this 
 works we know our UI works. That gives us a baseline to then build the server side.
 
-## Start Implementing
+## Time breakdown
+Start - 1pm PST
+Finish - 3:20am PST
+
+Total time spent: ~12 hours
+
+* JavaScript frontend code - 2 hours
+* JavaScript API server code - 0.5 hours
+* JavaScript server deployment - 1 hours
+* Python-based API Server - 0.5 hour
+* Python server deployment - 0.5 hours
+* Configuring / learning / fighting with JavaScript tools / development environment - ~8 hours
+
+## Retrospective / Random facts
+* Spent far too long (twice as much time) fighting with JavaScript ecosystem and tools
+  than I did actually getting the real project done.
+  * Used a boilerplate which included a lot of stuff useful for larger projects, but slowed things down for a test project
+  * JavaScript Fatigue is real - funny enough Calvin wrote about it too (https://segment.com/blog/the-deep-roots-of-js-fatigue/)
+  * For a company that specializes in JavaScript, one would probably want to maintain a private boilerplate
+  containing engineering standards / patterns everyone is familiar with. 
+* Filed one issue, ran into another one while implementing project. Both on github
+  * https://github.com/segmentio/analytics-node/issues/59
+  * https://github.com/segmentio/analytics.js/issues/505
+* Things that can use improvement
+  * Production deployment setup
+  * De-duplicate code between different screens
+  * Less ugly front-end pages
+  * tests (then again this is not a production project)
+
+
+
+
+
+
+
+
+
+# Note to self: Timeline of events
+
+9am - 1pm
+Getting Clarification, not started yet
+
+1:06pm
+High-level System Architecture - 
 
 1:21pm
+Start Implementing
 Researching what frameworks / tools to use
 
 1:36pm
@@ -112,3 +164,8 @@ Finally got the development version deployed to Heroku's server. Pretty ridiculo
 Also python server is deployed as well. 
 http://segment-debugger-python-server.herokuapp.com/api/identify
 
+3:10am
+Final testing stage
+
+3:19am
+Done with manual testing. Clean up main codebase now and write abbreviated summary
