@@ -4,14 +4,6 @@ import classes from './Header.scss'
 
 export const Header = () => (
   <nav>
-    <IndexLink to='/' activeClassName={classes.activeRoute}>
-      Home
-    </IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName={classes.activeRoute}>
-      Counter
-    </Link>
-    {' · '}
     <Link to='/identify' activeClassName={classes.activeRoute}>
       Identify
     </Link>

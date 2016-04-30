@@ -9,11 +9,11 @@ export const createRoutes = (store) => {
   const routes = {
     path: '/',
     component: CoreLayout,
+    indexRoute: { onEnter: (nextState, replace) => replace('/identify') },
     getChildRoutes (location, next) {
       require.ensure([], (require) => {
         next(null, [
           // Provide store for async reducers and middleware
-          require('./Counter').default(store),
           require('./Identify').default,
           require('./NotFound').default
         ])
